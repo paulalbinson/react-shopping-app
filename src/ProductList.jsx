@@ -274,7 +274,15 @@ function ProductList({ onHomeClick }) {
         }));
     };
     
-    const calculateTotalQuantity = () => { return cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0; };
+    const getTotalItemsInCart = () => {
+        let totalItemsInCart = 0;
+        cartItems.forEach((item) => {
+            totalItemsInCart += item.quantity;
+        });
+        return totalItemsInCart;
+    };    
+
+    const totalItemsInCart = getTotalItemsInCart();
 
     return (
         <div>
@@ -309,7 +317,7 @@ function ProductList({ onHomeClick }) {
                                   fontWeight="bold" 
                                   textAnchor="middle"
                                 >
-                                  {calculateTotalQuantity}
+                                  {totalItemsInCart}
                                 </text>
                                 </svg>
                             </h1>
