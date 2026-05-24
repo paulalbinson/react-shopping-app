@@ -97,7 +97,7 @@ body {
     height: 200px; /* Adjust height for better consistency */
 }
 
-.product-button {
+.product-button, .product-button-disabled {
     background-color: #e74c3c;
     color: #fff;
     border: none;
@@ -109,6 +109,10 @@ body {
 
 .product-button:hover {
     background-color: #c0392b;
+}
+
+.product-button-disabled{
+    background-color: gray;
 }
 
 /* Pseudo-elements - Sale badge */
