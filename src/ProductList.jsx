@@ -273,16 +273,8 @@ function ProductList({ onHomeClick }) {
             [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
     };
-
-    const getTotalItemsInCart = () => {
-        let totalItemsInCart = 0;
-        cartItems.forEach((item) => {
-            totalItemsInCart += item.quantity;
-        });
-        return totalItemsInCart;
-    };    
-
-    const totalItemsInCart = getTotalItemsInCart();
+    
+    const calculateTotalQuantity = () => { return cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0; };
 
     return (
         <div>
@@ -317,7 +309,7 @@ function ProductList({ onHomeClick }) {
                                   fontWeight="bold" 
                                   textAnchor="middle"
                                 >
-                                  {totalItemsInCart}
+                                  {calculateTotalQuantity}
                                 </text>
                                 </svg>
                             </h1>
