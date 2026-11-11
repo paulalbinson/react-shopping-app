@@ -1,23 +1,90 @@
-# e-plantShopping
+# Paradise Nursery React Shopping Application
 
-This e-plantShopping repository is a sample front end of a "Paradise Nursery" shopping application. The application interface allows you to browse a variety of houseplants and add them to a shopping cart. The shopping cart feature lets you see all your items and their total cost. The shopping cart also allows you to adjust the number of items in the cart before checkout.
+Paradise Nursery is a front-end plant shopping application built with React and Redux Toolkit. Visitors can explore a catalogue of houseplants, add plants to a shopping cart, change quantities, and see their totals update as they shop.
 
-Please consider the below factors while contributing.
+It was developed as an assessment submission for the Developing Front-End Apps with React course within the IBM Full Stack Software Developer Professional Certificate on Coursera. Building on an incomplete skeleton code, I developed this into a full application to meet the course assessment requirements.
 
-Code Style:
-Maintain a consistent code style for readability.
+This repository is a shareable example of my learning from the course: turning a supplied starting point into an interactive interface, managing shared application state, and connecting user actions to consistent updates across components. Checkout is an assessment placeholder that displays “Coming soon”; the application does not process orders or payments.
 
-Documentation:
-Ensure well-documented code for effective collaboration.
+You can find a live demonstration at https://paulalbinson.com/react-demos/react-shopping-app/.
 
-Testing:
-Thoroughly test your changes before submitting a pull request.
-Issue Tracker:
+## What the application does
 
-Check the Issue Tracker for tasks.
-Code Review:
+The application presents three views within a single React application:
 
-All contributions undergo a code review process.
+1. **Landing page:** introduces Paradise Nursery with a background image, company information, and a **Get Started** button that opens the catalogue.
+2. **Product listing:** displays plant cards with images, names, descriptions, prices, and **Add to Cart** buttons. Once a plant is in the cart, its button is disabled and displays **Added to Cart**. Removing it from the cart makes it available to add again.
+3. **Shopping cart:** shows each selected plant's image, name, unit price, quantity, and line total, together with the overall cart amount. Visitors can increase or decrease quantities, delete plants, continue shopping, or select the checkout placeholder.
 
-Licensing:
-Contributions are licensed.
+The shared catalogue and cart header provides navigation through the nursery name (Home), **Plants**, and the cart icon. The icon shows the sum of all quantities, rather than just the number of different plant types. Decreasing a quantity from one removes that plant from the cart.
+
+The catalogue contains six entries in each of five categories: Air Purifying Plants, Aromatic Fragrant Plants, Insect Repellent Plants, Medicinal Plants, and Low Maintenance Plants. Some plants appear in more than one category; cart entries are matched by plant name, so those appearances share the same cart item.
+
+## Skills demonstrated
+
+- **Component composition and props:** separating the landing page, company information, catalogue, and cart, with callback props connecting navigation actions.
+- **React hooks and conditional rendering:** using `useState` to control view visibility and rendering the catalogue or cart in response to user actions.
+- **Rendering structured data:** using nested `map()` calls to generate categories and product cards from JavaScript objects.
+- **Shared state with Redux Toolkit:** defining cart actions and reducers with `createSlice`, configuring a store, and making it available through React Redux's `Provider`.
+- **Connecting components to state:** using `useSelector` and `useDispatch` so cart quantities, totals, and product buttons reflect the same cart contents.
+- **Event handling and derived values:** responding to button clicks and calculating item counts, line totals, and the overall cart amount from state.
+- **CSS and front-end tooling:** styling the interface with component CSS, landing-page transitions, and media queries, using Vite for development and production builds.
+
+## Run locally
+
+Install Node.js and npm. The project's Vite 5 tooling requires Node.js 18 or newer; use a maintained Node.js release compatible with the dependencies.
+
+Download or clone this repository, open a terminal in its root directory, and run:
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Vite. No API keys, environment variables, backend server, or database are required. Images are loaded from external URLs, so an internet connection is needed to display them.
+
+**Case-sensitive environments:** `src/ProductList.jsx` currently imports `./cartSlice`, while the file is named `CartSlice.jsx`. Before running or building on a case-sensitive filesystem, change that import to:
+
+```js
+import { addItem } from './CartSlice';
+```
+
+### Available commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Build the application into `dist/`. |
+| `npm run preview` | Build and serve a local preview, using the configured `--host` option. |
+| `npm run lint` | Run ESLint with warnings treated as failures. |
+
+## Code structure
+
+```text
+src/
+  main.jsx          React entry point and Redux Provider
+  App.jsx           Landing page and top-level view visibility
+  AboutUs.jsx       Nursery introduction
+  ProductList.jsx   Plant data, catalogue, shared header, and cart navigation
+  CartItem.jsx      Cart display, quantity controls, and totals
+  CartSlice.jsx     Cart state and Redux actions
+  store.js          Redux store configuration
+  *.css             Application and component styling
+vite.config.js      Vite configuration and deployment base path
+```
+
+Navigation uses component state and conditional rendering rather than URL routes. Cart state lives in memory: it remains available while moving between views, but refreshing the page resets it.
+
+## Using and extending the code
+
+This project is useful as a learning reference for React and Redux, a portfolio example of completing a specification from starter code, or a starting point for a small catalogue and cart prototype.
+
+To adapt the catalogue, edit `plantsArray` in `src/ProductList.jsx`. Each category has a `category` label and a `plants` array; each plant supplies `name`, `image`, `description`, and `cost`. Prices currently use strings such as `"$15"`, which the cart converts into numbers for calculations. Keep names consistent because the cart uses them to identify products.
+
+Possible extensions include moving catalogue data into a separate module or API, introducing stable product IDs and numeric prices, saving the cart between visits, adding search and filtering, and connecting checkout to an ordering service. Accessibility and testing across screen sizes would also be useful areas for further development.
+
+## Scope and attribution
+
+This is an educational front-end application. It has no authentication, persistent storage, stock management, order processing, or payment integration. Plant descriptions and prices are sample catalogue content.
+
+The application builds on the assessment skeleton supplied through the IBM course. The repository includes the [Apache License 2.0](LICENSE), with an IBM Developer Skills Network copyright notice. Retain the required licence and attribution notices when reusing the code. Images are referenced from Pixabay and Unsplash; their usage terms should be checked separately when adapting or publishing the application.
