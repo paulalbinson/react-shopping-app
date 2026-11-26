@@ -7,7 +7,7 @@ body {
 /* Navbar */
 .navbar {
     background-color: #4CAF50;
-    color: #fff!important;
+    color: #fff !important;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -32,12 +32,12 @@ body {
     color: white;
     font-size: 30px;
     text-decoration: none;
-   
+
 }
 
 /* Product Grid */
 .product-grid {
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
@@ -45,7 +45,9 @@ body {
     margin-top: 10px;
 }
 
-.product-grid h1 { text-align: center; }
+.product-grid h1 {
+    text-align: center;
+}
 
 .product-list {
     display: flex;
@@ -70,7 +72,7 @@ body {
     border-radius: 5px;
     text-align: center;
     position: relative;
-    
+
     gap: 20px;
 }
 
@@ -140,7 +142,8 @@ body {
     padding: 5px 10px;
     border-radius: 0 0 0 5px;
 }
-.tag_home_link{
+
+.tag_home_link {
     display: flex;
     /* background-color: red; */
     flex-direction: column;
@@ -151,12 +154,15 @@ body {
     text-decoration: none;
     font-size: 20px;
 }
-.tag_home_link h3{
+
+.tag_home_link h3 {
     font-size: 30px;
 }
-.tag a{
+
+.tag a {
     text-decoration: none;
 }
+
 .tag {
     width: 100%;
     max-width: 400px;
@@ -181,11 +187,13 @@ body {
     gap: 0.25rem;
     font-size: 19px;
 }
-.cart{
+
+.cart {
     color: white;
     display: flex;
 }
-.cart_quantity_count{
+
+.cart_quantity_count {
     margin-top: 16px;
     /* background-color: red; */
     margin-left: 27px;
@@ -193,13 +201,15 @@ body {
     font-size: 29px;
 
 }
-.plantname_heading{
-   display: flex;
-   align-items: center;
-   justify-content: center;
+
+.plantname_heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* background-color: yellow; */
 }
-.plant_heading{
+
+.plant_heading {
     width: min(400px, calc(100% - 40px));
     text-align: center;
     margin: 20px;
@@ -207,8 +217,9 @@ body {
     border-left: none;
     border-right: none;
 
-    
+
 }
+
 @media (max-width: 1200px) {
     .product-grid {
         align-items: stretch;

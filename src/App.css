@@ -1,138 +1,139 @@
 /* LandingPage.css */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .landing-page {
-  position: relative;
-  background-color: #f8f8f8;
+    position: relative;
+    background-color: #f8f8f8;
 }
 
 .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
 }
+
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100svh;
-  padding: clamp(1rem, 4vw, 4rem);
-  backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: clamp(1.5rem, 5vw, 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    padding: clamp(1rem, 4vw, 4rem);
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.5);
+    gap: clamp(1.5rem, 5vw, 6rem);
 }
 
 .landing_content {
-  flex: 0 1 400px;
-  min-width: 0;
-  z-index: 1;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+    flex: 0 1 400px;
+    min-width: 0;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
 .aboutus_container {
-  flex: 0 1 1000px;
-  min-width: 0;
+    flex: 0 1 1000px;
+    min-width: 0;
 }
 
 .content p,
 .content h1 {
-  color: white;
+    color: white;
 }
 
 .content h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 10px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 10px;
 }
 
 .content p {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 .divider {
-  width: 50px;
-  height: 2px;
-  background-color: #4caf50;
-  margin: 10px 0;
+    width: 50px;
+    height: 2px;
+    background-color: #4caf50;
+    margin: 10px 0;
 }
 
 .get-started-button,
 .get-started-button1 {
-  font-size: 23px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 40px;
+    font-size: 23px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
 }
 
 .get-started-button {
-  padding: 15px 25px;
+    padding: 15px 25px;
 }
 
 .get-started-button1 {
-  padding: 15px 75px;
+    padding: 15px 75px;
 }
 
 .get-started-button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
 /* ProductList.css */
 
 .product-list-container {
-  position: fixed;
-  inset: 0;
-  visibility: hidden;
-  transform: translateY(100%);
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
-  transition: transform 0.5s ease, visibility 0s 0.5s;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  z-index: 2;
-  /* Ensure it's above landing page content */
-  backdrop-filter: blur(5px);
+    position: fixed;
+    inset: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Adjust background opacity as needed */
+    transition: transform 0.5s ease, visibility 0s 0.5s;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: 2;
+    /* Ensure it's above landing page content */
+    backdrop-filter: blur(5px);
 }
 
 .product-list-container.visible {
-  visibility: visible;
-  transform: translateY(0);
-  transition-delay: 0s;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
 }
 
 @media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-  }
+    .content {
+        flex-direction: column;
+    }
 
-  .landing_content,
-  .aboutus_container {
-    flex: none;
-    width: 100%;
-  }
+    .landing_content,
+    .aboutus_container {
+        flex: none;
+        width: 100%;
+    }
 
-  .landing_content .get-started-button {
-    margin-top: 1rem;
-  }
+    .landing_content .get-started-button {
+        margin-top: 1rem;
+    }
 
-  .about-us-container {
-    text-align: left;
-  }
+    .about-us-container {
+        text-align: left;
+    }
 }

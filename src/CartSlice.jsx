@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 export const CartSlice = createSlice({
     name: 'cart',
@@ -9,7 +9,7 @@ export const CartSlice = createSlice({
         addItem: (state, action) => {
             const {name, image, cost} = action.payload; // Destructure product details from the 
             // action payload
-            
+
             // Check if the item already exists in the cart by comparing names
             const existingItem = state.items.find(item => item.name === name);
             if (existingItem) {
@@ -24,7 +24,7 @@ export const CartSlice = createSlice({
         removeItem: (state, action) => {
             state.items = state.items.filter(item => item.name !== action.payload);
         },
-        
+
         updateQuantity: (state, action) => {
             const {name, quantity} = action.payload; // Destructure the product name and new 
             // quantity from the action payload
