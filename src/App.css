@@ -3,13 +3,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .landing-page {
   position: relative;
-  width: 100vw;
-  height: 100vh;
   background-color: #f8f8f8;
 }
 
@@ -20,7 +17,7 @@
   width: 100%;
   height: 100%;
   background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   filter: brightness(0.8);
 }
@@ -28,28 +25,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
+  min-height: 100svh;
+  padding: clamp(1rem, 4vw, 4rem);
   backdrop-filter: blur(4px);
   background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  gap: clamp(1.5rem, 5vw, 6rem);
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
+  flex: 0 1 400px;
+  min-width: 0;
   z-index: 1;
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+}
+
+.aboutus_container {
+  flex: 0 1 1000px;
+  min-width: 0;
 }
 
 .content p,
@@ -58,7 +55,7 @@
 }
 
 .content h1 {
-  font-size: 48px;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 10px;
 }
 
@@ -73,8 +70,8 @@
   margin: 10px 0;
 }
 
-.get-started-button {
-  padding: 15px 25px;
+.get-started-button,
+.get-started-button1 {
   font-size: 23px;
   border: none;
   border-radius: 5px;
@@ -85,6 +82,14 @@
   margin-top: 40px;
 }
 
+.get-started-button {
+  padding: 15px 25px;
+}
+
+.get-started-button1 {
+  padding: 15px 75px;
+}
+
 .get-started-button:hover {
   background-color: #45a049;
 }
@@ -92,56 +97,42 @@
 /* ProductList.css */
 
 .product-list-container {
-  position: absolute;
-  overflow-x: hidden;
-  top: 100vh;
-  /* Initially off-screen */
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  position: fixed;
+  inset: 0;
+  visibility: hidden;
+  transform: translateY(100%);
   background-color: rgba(255, 255, 255, 0.9);
   /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  /* Smooth transition for top property */
+  transition: transform 0.5s ease, visibility 0s 0.5s;
   overflow-y: auto;
-  /* Enable vertical scrolling */
+  overscroll-behavior: contain;
   z-index: 2;
   /* Ensure it's above landing page content */
   backdrop-filter: blur(5px);
 }
 
 .product-list-container.visible {
-  top: 0;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
 }
-/* LandingPage.css */
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
   .content {
     flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
   }
 
-  .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
-  }
-
+  .landing_content,
   .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
+    flex: none;
+    width: 100%;
   }
 
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
+  .landing_content .get-started-button {
+    margin-top: 1rem;
+  }
+
+  .about-us-container {
+    text-align: left;
   }
 }

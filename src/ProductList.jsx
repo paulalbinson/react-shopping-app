@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { addItem } from "./cartSlice";
+import { addItem } from "./CartSlice";
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
@@ -221,29 +221,6 @@ function ProductList({ onHomeClick }) {
         }
     ];
     
-    const styleObj = {
-        backgroundColor: '#4CAF50',
-        color: '#fff!important',
-        padding: '15px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignIems: 'center',
-        fontSize: '20px',
-    };
-    
-    const styleObjUl = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '1100px',
-    };
-    
-    const styleA = {
-        color: 'white',
-        fontSize: '30px',
-        textDecoration: 'none',
-    };
-
     const handleHomeClick = (e) => {
         e.preventDefault();
         onHomeClick();
@@ -286,7 +263,7 @@ function ProductList({ onHomeClick }) {
 
     return (
         <div>
-            <div className="navbar" style={styleObj}>
+            <div className="navbar">
                 <div className="tag">
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
@@ -298,10 +275,10 @@ function ProductList({ onHomeClick }) {
                         </a>
                     </div>
                 </div>
-                <div style={styleObjUl}>
-                    <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
+                <div className="shop-links">
+                    <div> <a href="#" onClick={(e) => handlePlantsClick(e)}>Plants</a></div>
                     <div> 
-                        <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                        <a href="#" onClick={(e) => handleCartClick(e)}>
                             <h1 className='cart'>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
                                     <rect width="156" height="156" fill="none"></rect>
