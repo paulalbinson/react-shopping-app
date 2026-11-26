@@ -166,7 +166,7 @@ body {
     width: 70px;
     flex-shrink: 0;
     border-radius: 70%;
-    
+    margin-right: 5px;
 }
 
 .luxury {
