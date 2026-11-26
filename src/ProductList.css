@@ -42,7 +42,11 @@ body {
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
+
+.product-grid h1 { text-align: center; }
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
