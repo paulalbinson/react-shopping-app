@@ -18,6 +18,8 @@ The application presents three views within a single React application:
 
 The shared catalogue and cart header provides navigation through the nursery name (Home), **Plants**, and the cart icon. The icon shows the sum of all quantities, rather than just the number of different plant types. Decreasing a quantity from one removes that plant from the cart.
 
+On narrow screens, the landing page stacks and scrolls as needed, the shop navigation stacks, and product cards adjust to the available width. On desktop, the landing page uses a side-by-side layout and the catalogue displays three cards per row.
+
 The catalogue contains six entries in each of five categories: Air Purifying Plants, Aromatic Fragrant Plants, Insect Repellent Plants, Medicinal Plants, and Low Maintenance Plants. Some plants appear in more than one category; cart entries are matched by plant name, so those appearances share the same cart item.
 
 ## Skills demonstrated
@@ -28,11 +30,11 @@ The catalogue contains six entries in each of five categories: Air Purifying Pla
 - **Shared state with Redux Toolkit:** defining cart actions and reducers with `createSlice`, configuring a store, and making it available through React Redux's `Provider`.
 - **Connecting components to state:** using `useSelector` and `useDispatch` so cart quantities, totals, and product buttons reflect the same cart contents.
 - **Event handling and derived values:** responding to button clicks and calculating item counts, line totals, and the overall cart amount from state.
-- **CSS and front-end tooling:** styling the interface with component CSS, landing-page transitions, and media queries, using Vite for development and production builds.
+- **CSS and front-end tooling:** styling the interface with Flexbox, CSS Grid, media queries, and landing-page transitions. Vite 8 handles development and production builds, and ESLint 10 checks JavaScript and JSX.
 
 ## Run locally
 
-Install Node.js and npm. The project's Vite 5 tooling requires Node.js 18 or newer; use a maintained Node.js release compatible with the dependencies.
+Use Node.js 24 with npm for the Vite 8 and ESLint 10 toolchain.
 
 Download or clone this repository, open a terminal in its root directory, and run:
 
@@ -42,12 +44,6 @@ npm run dev
 ```
 
 Open the local URL printed by Vite. No API keys, environment variables, backend server, or database are required. Images are loaded from external URLs, so an internet connection is needed to display them.
-
-**Case-sensitive environments:** `src/ProductList.jsx` currently imports `./cartSlice`, while the file is named `CartSlice.jsx`. Before running or building on a case-sensitive filesystem, change that import to:
-
-```js
-import { addItem } from './CartSlice';
-```
 
 ### Available commands
 
@@ -71,6 +67,7 @@ src/
   store.js          Redux store configuration
   *.css             Application and component styling
 vite.config.js      Vite configuration and deployment base path
+eslint.config.js    ESLint flat configuration and React lint rules
 ```
 
 Navigation uses component state and conditional rendering rather than URL routes. Cart state lives in memory: it remains available while moving between views, but refreshing the page resets it.
