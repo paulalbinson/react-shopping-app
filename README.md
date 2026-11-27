@@ -6,7 +6,7 @@ It was developed as an assessment submission for the Developing Front-End Apps w
 
 This repository is a shareable example of my learning from the course: turning a supplied starting point into an interactive interface, managing shared application state, and connecting user actions to consistent updates across components. Checkout is an assessment placeholder that displays “Coming soon”; the application does not process orders or payments.
 
-You can find a live demonstration at https://paulalbinson.com/react-demos/react-shopping-app/.
+You can find a live demonstration at https://paulalbinson.com/code-and-demos/react/shopping-app/.
 
 ## What the application does
 
